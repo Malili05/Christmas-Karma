@@ -1,8 +1,8 @@
 # Christmas-Karma
-license-badge
+
 
 ## Description
-to create a professional readme for the user
+
 
 ## Table of Contents
 Installation
