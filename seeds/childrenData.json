@@ -1,0 +1,50 @@
+[
+    {
+        "child_name": "shabby",
+        "last_inital": "a",
+        "naughtyNice": "TRUE",
+        "user_id": "user1"
+    },
+    {
+        "child_name": "shabby",
+        "last_inital": "b",
+        "naughtyNice": "FALSE",
+        "user_id": "user1"
+    },
+    {
+        "child_name": "cabby",
+        "last_inital": "c",
+        "naughtyNice": "FALSE",
+        "user_id": "user2"
+    },
+    {
+        "child_name": "cabbage",
+        "last_inital": "d",
+        "naughtyNice": "TRUE",
+        "user_id": "user3"
+    },
+    {
+        "child_name": "letuce",
+        "last_inital": "e",
+        "naughtyNice": "FALSE",
+        "user_id": "user4"
+    },
+    {
+        "child_name": "shawn",
+        "last_inital": "f",
+        "naughtyNice": "TRUE",
+        "user_id": "user4"
+    },
+    {
+        "child_name": "blonde",
+        "last_inital": "g",
+        "naughtyNice": "TRUE",
+        "user_id": "user4"
+    },
+    {
+        "child_name": "jackson",
+        "last_inital": "h",
+        "naughtyNice": "FALSE",
+        "user_id": "user5"
+    }
+  ]
