@@ -1,14 +1,14 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
-    const description = document.querySelector('#project-desc').value.trim();
+    const name = document.querySelector('#child-name').value.trim();
+    const childLast = document.querySelector('#child-lastinital').value.trim();
+    const naughtyNice = document.querySelector('#naughty-nice').value.trim();
   
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/projects`, {
+    if (name && childLast && naughtyNice) {
+      const response = await fetch(`/api/users/child`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ name, childLast, naughtyNice }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to create project');
+        alert('failed to create child');
       }
     }
   };
@@ -26,23 +26,23 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/users/child${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete child');
       }
     }
   };
   
   document
-    .querySelector('.new-project-form')
+    .querySelector('.new-child-form')
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.project-list')
+    .querySelector('.child-list')
     .addEventListener('click', delButtonHandler);
   
