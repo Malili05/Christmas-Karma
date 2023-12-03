@@ -1,48 +1,47 @@
-const newFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
-    const description = document.querySelector('#project-desc').value.trim();
-  
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/projects`, {
-        method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to create project');
-      }
+const addChildFormHandler = async (event) => {
+  event.preventDefault();
+
+  const name = document.querySelector('#child-name').value.trim();
+  const country = document.querySelector('#child-country').value.trim();
+  const listType = document.querySelector('input[name="child-list"]:checked').value;
+
+  if (name && country && listType) {
+    const response = await fetch('/api/children', {
+      method: 'POST',
+      body: JSON.stringify({ name, country, listType }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to add child');
     }
-  };
-  
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/projects/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete project');
-      }
+  }
+};
+
+const deleteChildHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/children/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete child');
     }
-  };
-  
-  document
-    .querySelector('.new-project-form')
-    .addEventListener('submit', newFormHandler);
-  
-  document
-    .querySelector('.project-list')
-    .addEventListener('click', delButtonHandler);
-  
+  }
+};
+
+document
+  .querySelector('.new-child-form')
+  .addEventListener('submit', addChildFormHandler);
+
+document
+  .querySelector('.project-list') // Make sure this selector matches your HTML structure
+  .addEventListener('click', deleteChildHandler);

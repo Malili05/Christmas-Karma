@@ -5,44 +5,71 @@
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>New Child:</h3>
+  {{#if child.length}}
+    <div class="col-md-6 project-list">
+      <h3>Current Children:</h3>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">Child name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+      {{#each childs as |child|}}
+        <div class="row mb-2">
+          <div class="col-md-8">
+            <h4><a href="/project/{{child.id}}">{{child.name}}</a></h4>
+          </div>
+          <div class="col-md-4">
+            <button
+              class="btn btn-sm btn-danger"
+              data-id="{{child.id}}"
+            >DELETE</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+<div class="col-md-6">
+  <h3>Add a Child:</h3>
 
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+  <form class="form new-child-form">
+    <div class="form-group">
+      <label for="child-name">Child's name:</label>
+      <input
+        class="form-input"
+        type="text"
+        id="child-name"
+        name="child-name"
+        placeholder="First name, last initial"
+      />
+    </div>
+    <div class="form-group">
+      <label for="child-country">Country where they live:</label>
+      <input
+        class="form-input"
+        type="text"
+        id="child-country"
+        name="child-country"
+        placeholder="U.S., Canada, France, etc..."
+      />
+    </div>
+    <div class="form-group">
+      <label>Which list does this child belong to?</label>
+      <div class="form-radio">
+        <input
+          type="radio"
+          id="naughty-list"
+          name="child-list"
+          value="naughty"
+        />
+        <label for="naughty-list">Naughty</label>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      <div class="form-radio">
+        <input type="radio" id="nice-list" name="child-list" value="nice" />
+        <label for="nice-list">Nice</label>
       </div>
     </div>
-    {{/each}}
-  </div>
-  {{/if}}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Child</button>
+    </div>
+  </form>
 </div>
 
 <script src="./js/profile.js"></script>
