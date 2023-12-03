@@ -1,0 +1,72 @@
+/* Combined CSS */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Skranji", cursive;
+}
+
+header {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  background-color: transparent; /* Set background color to transparent */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  text-decoration: none; /* Remove text decoration for the h1 tag */
+  color: #fff; /* Set text color to white */
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  width: 75%;
+  margin: 0 auto;
+  z-index: 1;
+  background-color: transparent; /* Set background color to transparent */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #4caf50;
+}
+
+.container-box {
+  margin-top: 20px;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.main-content {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+}
