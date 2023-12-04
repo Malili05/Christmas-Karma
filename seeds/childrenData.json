@@ -1,41 +1,49 @@
 [
   {
     "child_name": "shabby a",
+    "country": "usa",
     "naughtyNice": true,
     "user_id": 1
   },
   {
     "child_name": "shabby b",
+    "country": "usa",
     "naughtyNice": false,
     "user_id": 1
   },
   {
     "child_name": "cabby c",
+    "country": "mexico",
     "naughtyNice": false,
     "user_id": 2
   },
   {
     "child_name": "cabbage d",
+    "country": "usa",
     "naughtyNice": true,
     "user_id": 3
   },
   {
     "child_name": "letuce e",
+    "country": "usa",
     "naughtyNice": false,
     "user_id": 4
   },
   {
     "child_name": "shawn f",
+    "country": "canada",
     "naughtyNice": true,
     "user_id": 4
   },
   {
     "child_name": "blonde g",
+    "country": "japan",
     "naughtyNice": true,
     "user_id": 4
   },
   {
     "child_name": "jackson h",
+    "country": "france",
     "naughtyNice": false,
     "user_id": 5
   }

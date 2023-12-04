@@ -14,8 +14,8 @@
 
     <ul>
         {{#each children}}
-        <li style="color: {{#if naughtyNice}}green{{else}}red{{/if}}">
-            {{child_name}}
+        <li style="color: {{#if this.naughtyNice}}green{{else}}red{{/if}}">
+            {{this.child_name}}
         </li>
         {{/each}}
     </ul>

@@ -15,21 +15,17 @@ router.get('/profile', async (req, res) => {
     res.render('profile', {});
 });
 
-
-// Route to display the naughty/nice list
 router.get('/lists', async (req, res) => {
     try {
-        // Fetch children data from the database
         const children = await Child.findAll();
-
         console.log('Fetched children in homeRoutes:', children);
-
-        // Render the lists.handlebars file with the fetched data
         res.render('lists', { children });
     } catch (err) {
         console.error('Error fetching children data:', err);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+// The duplicate route for the root path is removed
 
 module.exports = router;

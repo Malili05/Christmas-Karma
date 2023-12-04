@@ -1,6 +1,6 @@
 // controllers/children.js
 
-const { Children } = require('../models'); // Update the import to match your model filename
+const { Children } = require('../../models'); // Update the import to match your model filename
 
 // Handle the creation of a new child
 exports.createChild = async (req, res) => {
