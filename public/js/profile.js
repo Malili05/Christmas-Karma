@@ -3,12 +3,12 @@ const addChildFormHandler = async (event) => {
 
   const name = document.querySelector('#child-name').value.trim();
   const country = document.querySelector('#child-country').value.trim();
-  const listType = document.querySelector('input[name="child-list"]:checked').value;
+  const listType = document.querySelector('input[name="child-list"]:checked');
 
   if (name && country && listType) {
     const response = await fetch('/api/children', {
       method: 'POST',
-      body: JSON.stringify({ name, country, listType }),
+      body: JSON.stringify({ name, country, listType: listType.value }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -17,13 +17,15 @@ const addChildFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
+      const errorMessage = await response.text();
+      console.error(`Failed to add child. Error: ${errorMessage}`);
       alert('Failed to add child');
     }
   }
 };
 
 const deleteChildHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  if (event.target.classList.contains('btn-danger')) {
     const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/children/${id}`, {
@@ -33,6 +35,8 @@ const deleteChildHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
+      const errorMessage = await response.text();
+      console.error(`Failed to delete child. Error: ${errorMessage}`);
       alert('Failed to delete child');
     }
   }

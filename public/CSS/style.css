@@ -1,7 +1,12 @@
 /* Updated CSS */
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   align-items: center;
   font-family: "Skranji", cursive;
@@ -34,8 +39,14 @@ header h1 {
   font-size: 3em;
   text-decoration: none;
   color: #fff;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
+  transition: color 0.3s; /* Add transition for smooth color change */
 }
 
+header h1:hover {
+  color: #4caf50; /* Change to green on hover */
+}
 nav {
   display: flex;
   justify-content: space-around;
@@ -49,10 +60,12 @@ nav a {
   text-decoration: none;
   font-size: 2em;
   transition: color 0.3s;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
 }
 
 nav a:hover {
-  color: #4caf50;
+  color: #4caf50; /* Change to green on hover */
 }
 
 .main-container {
@@ -78,4 +91,11 @@ nav a:hover {
 .main-content h2,
 .main-content h3 {
   text-align: center;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
+}
+
+/* Change text color to green on hover in main content */
+.main-content a:hover {
+  color: #4caf50;
 }
