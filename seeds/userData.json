@@ -1,28 +1,27 @@
 [
-    {
-      "userName": "user1",
-      "email": "test1@email.com",
-      "password": "SoSeceret"
-    },
-    {
-        "userName": "user2",
-        "email": "test2@email.com",
-        "password": "SoSeceret"
-      },
-      {
-        "userName": "user3",
-        "email": "test3@email.com",
-        "password": "SoSeceret"
-      },
-      {
-        "userName": "user4",
-        "email": "test4@email.com",
-        "password": "SoSeceret"
-      },
-      {
-        "userName": "user5",
-        "email": "test5@email.com",
-        "password": "SoSeceret"
-      }
-  ]
-  
+  {
+    "username": "user1",
+    "email": "test1@email.com",
+    "password": "SoSecret"
+  },
+  {
+    "username": "user2",
+    "email": "test2@email.com",
+    "password": "SoSecret"
+  },
+  {
+    "username": "user3",
+    "email": "test3@email.com",
+    "password": "SoSecret"
+  },
+  {
+    "username": "user4",
+    "email": "test4@email.com",
+    "password": "SoSecret"
+  },
+  {
+    "username": "user5",
+    "email": "test5@email.com",
+    "password": "SoSecret"
+  }
+]

@@ -58,7 +58,6 @@ document.head.appendChild(styleElement);
 
 // Naughty Notifier JavaScript
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOM Content Loaded'); // Check if this logs in the console
   const audio = new Audio('/media/YouSuffer.mp3');
   const toggleSwitch = document.getElementById('toggleSwitch');
   const naughtyCounterTextElement = document.getElementById('naughtyCounterText');

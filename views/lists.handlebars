@@ -1,0 +1,24 @@
+<!-- lists.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naughty/Nice List</title>
+</head>
+
+<body>
+    <h1>Naughty/Nice List</h1>
+
+    <ul>
+        {{#each children}}
+        <li style="color: {{#if naughtyNice}}green{{else}}red{{/if}}">
+            {{child_name}}
+        </li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>

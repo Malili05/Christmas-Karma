@@ -5,13 +5,12 @@ const { Children } = require('../models'); // Update the import to match your mo
 // Handle the creation of a new child
 exports.createChild = async (req, res) => {
     try {
-        const { child_name, last_inital, user_id, naughtyNice } = req.body;
+        const { child_name, user_id, naughtyNice } = req.body;
         // Perform validation if needed
 
         // Create a new child
         const newChild = await Children.create({
             child_name,
-            last_inital,
             user_id,
             naughtyNice,
         });
