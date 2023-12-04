@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <!-- Your head content here -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christmas Karma</title>
@@ -33,10 +34,15 @@
       <h1>Christmas Karma</h1>
     </a>
     <nav>
-
       <a href="/profile">Profile</a>
       <a href="/lists">View The Lists!</a>
+
+      <!-- Add the logout link if the user is logged in, otherwise, show the login link -->
+      {{#if loggedIn}}
+      <a href="/logout">Logout</a>
+      {{else}}
       <a href="/login">Login</a>
+      {{/if}}
 
     </nav>
   </header>
@@ -58,7 +64,7 @@
         <span class="slider"></span>
       </label>
       <p id="naughtyCounterText">Number of Naughty Names: </p>
-      <p id="naughtyCounter">50001</p>
+      <p id="naughtyCounter"></p>
     </div>
   </footer>
 
@@ -66,6 +72,12 @@
   <script src="/js/naughty-notifier.js"></script>
 
   <!-- Include other scripts here if needed -->
+
+  <!-- Logout button -->
+  <button id="logout" style="margin-top: 10px;">Logout</button>
+
+  <!-- Your scripts here -->
+  <script src="./js/logout.js"></script>
 
 </body>
 

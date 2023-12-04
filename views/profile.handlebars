@@ -8,25 +8,22 @@
 
 <div class="row mt-4">
   {{#if child.length}}
-    <div class="col-md-6 project-list">
-      <h3>Current Children:</h3>
+  <div class="col-md-6 project-list">
+    <h3>Current Children:</h3>
 
-      {{#each childs as |child|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a href="/project/{{child.id}}">{{child.name}}</a></h4>
-            {{!-- Display the country property --}}
-            <p>Country: {{child.country}}</p>
-          </div>
-          <div class="col-md-4">
-            <button
-              class="btn btn-sm btn-danger"
-              data-id="{{child.id}}"
-            >DELETE</button>
-          </div>
-        </div>
-      {{/each}}
+    {{#each childs as |child|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{child.id}}">{{child.name}}</a></h4>
+        {{!-- Display the country property --}}
+        <p>Country: {{child.country}}</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger delete-child-btn" data-id="{{child.id}}">DELETE</button>
+      </div>
     </div>
+    {{/each}}
+  </div>
   {{/if}}
 </div>
 
@@ -36,33 +33,17 @@
   <form class="form new-child-form">
     <div class="form-group">
       <label for="child-name">Child's name:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="child-name"
-        name="child-name"
-        placeholder="First name, last initial"
-      />
+      <input class="form-input" type="text" id="child-name" name="child-name" placeholder="First name, last initial" />
     </div>
     <div class="form-group">
       <label for="child-country">Country where they live:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="child-country"
-        name="child-country"
-        placeholder="U.S., Canada, France, etc..."
-      />
+      <input class="form-input" type="text" id="child-country" name="child-country"
+        placeholder="U.S., Canada, France, etc..." />
     </div>
     <div class="form-group">
       <label>Which list does this child belong to?</label>
       <div class="form-radio">
-        <input
-          type="radio"
-          id="naughty-list"
-          name="child-list"
-          value="naughty"
-        />
+        <input type="radio" id="naughty-list" name="child-list" value="naughty" />
         <label for="naughty-list">Naughty</label>
       </div>
       <div class="form-radio">
@@ -71,7 +52,7 @@
       </div>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Add Child</button>
+      <button type="submit" class="btn btn-primary add-child-btn">Add Child</button>
     </div>
   </form>
 </div>

@@ -1,8 +1,12 @@
+// controllers/index.js
+
 const router = require('express').Router();
+const apiRoutes = require('./api/apiRoutes');
 const homeRoutes = require('./homeRoutes');
-const childRoutes = require('./childRoutes');
+
+
+router.use('/api', apiRoutes);
 
 router.use('/', homeRoutes);
-router.use('/', childRoutes);
 
 module.exports = router;

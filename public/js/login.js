@@ -7,11 +7,16 @@ const loginFormHandler = async (event) => {
 
     if (email && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/user/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
+
+        // Add console.log statements for debugging
+        console.log('Login form submitted with values:', { email, password });
+        console.log('Request URL:', '/api/user/login');
+        console.log('Response:', response);
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
@@ -30,16 +35,24 @@ const signupFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/api/users', {
-            method: 'POST',
-            body: JSON.stringify({ name, email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
+        try {
+            const response = await fetch('/api/user', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, password }),
+                headers: { 'Content-Type': 'application/json' },
+            });
 
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert(response.statusText);
+            console.log('Signup form submitted with values:', { name, email, password });
+            console.log('Request URL:', '/api/user');
+            console.log('Response:', response);
+
+            if (response.ok) {
+                document.location.replace('/profile');
+            } else {
+                alert('Signup failed');
+            }
+        } catch (error) {
+            console.error('Error during signup fetch:', error);
         }
     }
 };
@@ -51,3 +64,14 @@ document
 document
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
+
+
+document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
+
+document
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
+
+
