@@ -73,3 +73,9 @@ nav a:hover {
   margin: 0 auto;
   padding: 20px;
 }
+
+/* Center headings in the main content */
+.main-content h2,
+.main-content h3 {
+  text-align: center;
+}

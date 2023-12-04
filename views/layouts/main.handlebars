@@ -1,4 +1,5 @@
-<!-- Updated HTML -->
+<!-- main.handlebars -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,32 +14,44 @@
       rel="stylesheet"
     />
   </head>
-  <body class="{{bodyClass}}">
-    <div class="container-box">
-      <video class="background-video" autoplay muted loop>
-        <source src="images/christmas48.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+  <body>
 
-      <header>
-        <a href="/" style="text-decoration: none;"><h1>Christmas Karma</h1></a>
-        <nav>
-          <a href="/profile">Profile</a>
-          <a href="/lists">View The Lists!</a>
-          <a href="/login">Login</a>
-        </nav>
-      </header>
+    <video class="background-video" autoplay muted loop>
+      <source src="/images/SantaCity.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-      <!-- Container for the main content -->
-      <div class="main-container">
-        <main class="main-content">
-          <!-- Render the sub layout -->
-          {{{body}}}
-        </main>
-      </div>
+    <!-- Credit text for the video -->
+    <p
+      style="text-align: center; font-size: 12px; color: #fff; margin-top: 10px;"
+    >
+      Video Credit: 3D animation video by Quince Creative -
+      <a
+        href="https://quincemedia.com"
+        style="color: #fff; text-decoration: underline;"
+        target="_blank"
+      >quincemedia.com</a>
+    </p>
+
+    <header>
+      <a href="/" style="text-decoration: none;"><h1>Christmas Karma</h1></a>
+      <nav>
+        <a href="/profile">Profile</a>
+        <a href="/lists">View The Lists!</a>
+        <a href="/login">Login</a>
+      </nav>
+    </header>
+
+    <!-- Container for the main content -->
+    <div class="main-container">
+      <main class="main-content">
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
     </div>
 
     <footer>
     </footer>
+
   </body>
 </html>
