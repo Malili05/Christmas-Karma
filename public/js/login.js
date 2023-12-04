@@ -22,7 +22,8 @@ const loginFormHandler = async (event) => {
             // If successful, redirect the browser to the profile page
             document.location.replace('/profile');
         } else {
-            alert(response.statusText);
+            // Log or alert the error message
+            console.error(response.statusText);
         }
     }
 };
@@ -64,14 +65,3 @@ document
 document
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
-
-
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
-
-document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
-
-

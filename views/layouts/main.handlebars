@@ -1,11 +1,9 @@
-<!-- main.handlebars -->
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <!-- Your head content here -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christmas Karma</title>
   <link rel="stylesheet" href="CSS/normalize.css" />
   <link rel="stylesheet" href="CSS/style.css" />
@@ -37,12 +35,8 @@
       <a href="/profile">Profile</a>
       <a href="/lists">View The Lists!</a>
 
-      <!-- Add the logout link if the user is logged in, otherwise, show the login link -->
-      {{#if loggedIn}}
-      <a href="/logout">Logout</a>
-      {{else}}
-      <a href="/login">Login</a>
-      {{/if}}
+      <!-- Add the login/logout link based on the user's authentication status -->
+      <a href="#" id="logout"> {{#if loggedIn}}Logout{{else}}Login{{/if}} </a>
 
     </nav>
   </header>
@@ -71,13 +65,8 @@
   <!-- Include Naughty Notifier JavaScript -->
   <script src="/js/naughty-notifier.js"></script>
 
-  <!-- Include other scripts here if needed -->
-
-  <!-- Logout button -->
-  <button id="logout" style="margin-top: 10px;">Logout</button>
-
-  <!-- Your scripts here -->
-  <script src="./js/logout.js"></script>
+  <!-- Include logout script -->
+  <script src="/js/logout.js"></script>
 
 </body>
 
