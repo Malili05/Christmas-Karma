@@ -65,6 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
   let naughtyCounter = Math.floor(Math.random() * 900000) + 100000; // Random number between 100k and 1 million
   let isSoundOn = false;
 
+  function startCheck() {
+    let isSoundOn = toggleSwitch.checked;
+    if (isSoundOn) {
+      playSoundWithRandomInterval();
+    } else {
+      stopSound();
+  }};
+  startCheck();
+
   toggleSwitch.addEventListener('change', function () {
     isSoundOn = toggleSwitch.checked;
     if (isSoundOn) {
@@ -78,7 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isSoundOn) {
       const randomInterval = Math.floor(Math.random() * 30000); // Random interval between 0 and 30 seconds
       setTimeout(function () {
-        audio.play();
+        if (isSoundOn) {
+          audio.play();
+        } else {
+          stopSound();
+        }
         updateNaughtyCounter();
         playSoundWithRandomInterval(); // Continue playing with a new random interval
       }, randomInterval);
