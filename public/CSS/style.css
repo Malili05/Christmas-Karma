@@ -99,3 +99,6 @@ nav a:hover {
 .main-content a:hover {
   color: #4caf50;
 }
+.ck-size {
+    size: 50px 50px;
+}
