@@ -1,18 +1,13 @@
-// Assuming you're using Express for your server
-const express = require('express');
-const router = express.Router();
+// controllers/chartRoutes.js
 
-// Import your database model or connection
-const ChartData = require('./models/chartData'); // Replace with your actual model or database connection code
+const router = require('express').Router();
 
-router.get('/chartData', async (req, res) => {
-    try {
-        const data = await ChartData.find(); // Replace with your actual database query
-        res.json(data);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+// Define your chart routes here
+
+// Example route
+router.get('/', (req, res) => {
+  // Render your chart page
+  res.render('chart');
 });
 
 module.exports = router;
