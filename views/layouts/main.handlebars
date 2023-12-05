@@ -35,8 +35,11 @@
       <a href="/profile">Profile</a>
       <a href="/lists">View The Lists!</a>
 
-      <!-- Add the login/logout link based on the user's authentication status -->
-      <a href="#" id="logout"> {{#if loggedIn}}Logout{{else}}Login{{/if}} </a>
+      <!-- Fixed Login Link -->
+      <a href="/login" id="login">Login</a>
+
+      <!-- Seperate Logout Link -->
+      <a href="#" id="logout" style="display: none;">Logout</a>
 
     </nav>
   </header>
@@ -50,7 +53,7 @@
   </div>
 
   <!-- Naughty Notifier -->
-  <footer>
+  <footer class="main-footer">
     <div id="naughty-notifier">
       <h2>Naughty Notifier</h2>
       <label class="switch">

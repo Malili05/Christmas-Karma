@@ -19,8 +19,18 @@ const loginFormHandler = async (event) => {
         console.log('Response:', response);
 
         if (response.ok) {
-            // If successful, redirect the browser to the profile page
-            document.location.replace('/profile');
+            const responseData = await response.json();
+
+            // Check if the server included a redirect URL
+            const redirectTo = responseData.redirectTo;
+
+            if (redirectTo) {
+                // If there's a redirect URL, use it to navigate
+                document.location.replace(redirectTo);
+            } else {
+                // If no redirect URL is provided, you can keep your existing client-side redirection
+                document.location.replace('/profile');
+            }
         } else {
             // Log or alert the error message
             console.error(response.statusText);

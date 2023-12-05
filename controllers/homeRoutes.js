@@ -14,19 +14,16 @@ router.get('/login', async (req, res) => {
 
 router.get('/profile', withAuth(true), async (req, res) => {
     try {
-        // Assuming you have a session variable storing the user ID
         const userId = req.session.user_id;
 
-        // Fetch the user and their associated children using the correct alias
         const userData = await User.findByPk(userId, {
-            include: [{ model: Child, as: 'children' }], // Use the correct alias 'children'
+            include: [{ model: Child, as: 'children' }],
         });
 
-        // Render the profile page with the user data
         res.render('profile', {
-            layout: 'main',  // Assuming you have a main layout template
+            layout: 'main',
             name: userData.name,
-            childs: userData.children, // Use the correct alias 'children'
+            children: userData.children, // Use the correct alias 'children'
         });
     } catch (err) {
         console.error('Error rendering profile page:', err);
@@ -34,13 +31,12 @@ router.get('/profile', withAuth(true), async (req, res) => {
     }
 });
 
-// Example route displaying the list of children without authentication
 router.get('/lists', withAuth(false), async (req, res) => {
     try {
         const children = await Child.findAll({
-            attributes: ['child_name', 'naughtyNice'],
+            attributes: ['child_name', 'naughtyNice', 'country'], // Include 'country'
         });
-        console.log('Fetched children in homeRoutes:', children);
+
         res.render('lists', { children });
     } catch (err) {
         console.error('Error fetching children data:', err);

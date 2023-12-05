@@ -15,6 +15,10 @@ Child.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    country: { // Add the country field
+      type: DataTypes.STRING,
+      allowNull: true, // Adjust allowNull as needed
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

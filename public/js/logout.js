@@ -18,14 +18,18 @@ document.addEventListener('DOMContentLoaded', async function () {
         const logoutButton = document.querySelector('#logout');
 
         if (logoutButton) {
-            logoutButton.addEventListener('click', async function () {
-                // Call the logout function when the button is clicked
-                await logout();
-            });
-
-            // Check if the user is logged in and update the link text accordingly
+            // Check if the user is logged in
             const loggedIn = await checkLoggedInStatus();
-            updateLoginLogoutLink(loggedIn);
+
+            // Add event listener only if the user is logged in
+            if (loggedIn) {
+                logoutButton.style.display = 'inline'; // Show the logout button
+                logoutButton.addEventListener('click', async function (event) {
+                    event.preventDefault();
+                    // Call the logout function when the button is clicked
+                    await logout();
+                });
+            }
         } else {
             console.error("#logout element not found. Check your HTML.");
         }
@@ -38,11 +42,3 @@ async function checkLoggedInStatus() {
     const response = await fetch('/api/user'); // Assume an endpoint that checks the user's login status
     return response.ok;
 }
-
-function updateLoginLogoutLink(loggedIn) {
-    const loginLogoutLink = document.getElementById('logout');
-    if (loginLogoutLink) {
-        loginLogoutLink.textContent = loggedIn ? 'Logout' : 'Login';
-    }
-}
-

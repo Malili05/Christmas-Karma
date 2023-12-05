@@ -2,24 +2,33 @@ document.addEventListener('DOMContentLoaded', function () {
   const addChildFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#child-name').value.trim();
+    const child_name = document.querySelector('#child-name').value.trim();
     const country = document.querySelector('#child-country').value.trim();
     const listType = document.querySelector('input[name="child-list"]:checked');
 
-    if (name && country && listType) {
-      const response = await fetch('/api/children', {
-        method: 'POST',
-        body: JSON.stringify({ name, country, listType: listType.value }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+    console.log('Form Data:', { child_name, country, listType });
 
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        const errorMessage = await response.text();
-        console.error(`Failed to add child. Error: ${errorMessage}`);
+    if (child_name && country && listType) {
+      try {
+        const response = await fetch('/api/child', {
+          method: 'POST',
+          body: JSON.stringify({ child_name, country, naughtyNice: listType.value === 'nice' }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        console.log('Response:', response);
+
+        if (response.ok) {
+          document.location.replace('/profile');
+        } else {
+          const errorMessage = await response.text();
+          console.error(`Failed to add child. Error: ${errorMessage}`);
+          alert('Failed to add child');
+        }
+      } catch (error) {
+        console.error('Error during fetch:', error);
         alert('Failed to add child');
       }
     }
@@ -29,15 +38,24 @@ document.addEventListener('DOMContentLoaded', function () {
     if (event.target.classList.contains('btn-danger')) {
       const id = event.target.getAttribute('data-id');
 
-      const response = await fetch(`/api/children/${id}`, {
-        method: 'DELETE',
-      });
+      console.log('Deleting Child with ID:', id);
 
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        const errorMessage = await response.text();
-        console.error(`Failed to delete child. Error: ${errorMessage}`);
+      try {
+        const response = await fetch(`/api/child/${id}`, {
+          method: 'DELETE',
+        });
+
+        console.log('Delete Response:', response);
+
+        if (response.ok) {
+          document.location.replace('/profile');
+        } else {
+          const errorMessage = await response.text();
+          console.error(`Failed to delete child. Error: ${errorMessage}`);
+          alert('Failed to delete child');
+        }
+      } catch (error) {
+        console.error('Error during fetch:', error);
         alert('Failed to delete child');
       }
     }

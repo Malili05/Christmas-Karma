@@ -1,15 +1,16 @@
 // controllers/children.js
-
-const { Children } = require('../../models'); // Update the import to match your model filename
+const router = require('express').Router();
+const { Child } = require('../../models'); // Update the import to match your controller file
 
 // Handle the creation of a new child
-exports.createChild = async (req, res) => {
+router.post('/api/child', async (req, res) => {
     try {
+        console.log('POST /api/child endpoint hit');
         const { child_name, user_id, naughtyNice } = req.body;
         // Perform validation if needed
 
         // Create a new child
-        const newChild = await Children.create({
+        const newChild = await Child.create({
             child_name,
             user_id,
             naughtyNice,
@@ -20,16 +21,16 @@ exports.createChild = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-};
+});
 
 // Handle the deletion of a child
-exports.deleteChild = async (req, res) => {
+router.delete('/api/child/:id', async (req, res) => {
     try {
         const { id } = req.params;
         // Perform validation if needed
 
         // Delete the child by ID
-        const deletedChild = await Children.destroy({
+        const deletedChild = await Child.destroy({
             where: { id },
         });
 
@@ -42,6 +43,9 @@ exports.deleteChild = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-};
+});
+
+console.log("Child Routes Registered")
 
 // Add more functions as needed for child-related operations
+module.exports = router;
