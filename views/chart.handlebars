@@ -1,0 +1,58 @@
+<!-- chart.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* Center text in the body */
+        }
+
+        h1 {
+            margin-top: 20px;
+            /* Add margin to give space at the top */
+        }
+
+        /* Add your existing styles here */
+    </style>
+</head>
+
+<body>
+    <h1>Pie Chart</h1>
+
+    <!-- Canvas element for the pie chart -->
+    <canvas id="myPieChart" width="400" height="400"></canvas>
+
+    <script>
+        // JavaScript code to create the pie chart
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sample data, replace this with data from your database
+            var data = {
+                labels: ['Nice', 'Naughty'],
+                datasets: [{
+                    data: [25, 75], // Example data, replace with your actual data
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    hoverBackgroundColor: ['#36A2EB', '#FF6384'],
+                }],
+            };
+
+            var ctx = document.getElementById('myPieChart').getContext('2d');
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+            });
+        });
+    </script>
+</body>
+
+</html>

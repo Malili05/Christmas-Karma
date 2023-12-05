@@ -1,0 +1,101 @@
+/* Updated CSS */
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Skranji", cursive;
+  margin: 0; /* Reset margin to remove default spacing */
+}
+
+.container-box {
+  position: relative;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  z-index: 1;
+  background-color: transparent;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  text-decoration: none;
+  color: #fff;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
+  transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+header h1:hover {
+  color: #4caf50; /* Change to green on hover */
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  z-index: 1;
+  background-color: transparent;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+  transition: color 0.3s;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
+}
+
+nav a:hover {
+  color: #4caf50; /* Change to green on hover */
+}
+
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 70%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a maximum width if desired */
+  height: auto; /* Let the height adjust based on content */
+  padding: 20px;
+}
+
+.main-content {
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Center headings in the main content */
+.main-content h2,
+.main-content h3 {
+  text-align: center;
+  /* Add bold black outline */
+  text-shadow: 2px 2px 2px #000;
+}
+
+/* Change text color to green on hover in main content */
+.main-content a:hover {
+  color: #4caf50;
+}

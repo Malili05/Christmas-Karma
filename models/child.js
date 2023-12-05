@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Child extends Model {}
+class Child extends Model { }
 
 Child.init(
   {
@@ -14,10 +14,10 @@ Child.init(
     child_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },    
-    last_inital: {
+    },
+    country: { // Add the country field
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true, // Adjust allowNull as needed
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -29,7 +29,7 @@ Child.init(
     naughtyNice: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize,
@@ -41,4 +41,3 @@ Child.init(
 );
 
 module.exports = Child;
-
