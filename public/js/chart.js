@@ -1,5 +1,5 @@
 const getData= async () => {
-    const response = await fetch('/chart/test', {
+    const response = await fetch('/api/child/chartData', {
         method: 'GET',
     })
     console.log(response.body)

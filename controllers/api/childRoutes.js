@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const { Child } = require('../../models'); // Update the import to match your controller file
 
+
 // Handle the creation of a new child
 router.post('/api/child', async (req, res) => {
     try {
@@ -44,7 +45,24 @@ router.delete('/api/child/:id', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
+router.get('/chartData', async (req, res) => {
+    var data = {
+      labels: ['Nice', 'Naughty'],
+      datasets: [{
+          data: [], // Example data, replace with your actual data
+          backgroundColor: ['#36A2EB', '#FF6384'],
+          hoverBackgroundColor: ['#36A2EB', '#FF6384'],
+      }],
+  };
+  const db_data= await Child.findAll({})
+  let naughty= 0, nice= 0;
+  db_data.forEach(record => {
+    if(record.naughtyNice) naughty+= 1
+    else nice += 1
+  })
+  data.datasets[0].data.push(naughty, nice)
+    res.send(data)
+  });
 console.log("Child Routes Registered")
 
 // Add more functions as needed for child-related operations
