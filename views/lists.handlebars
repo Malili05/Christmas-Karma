@@ -2,90 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naughty/Nice List</title>
-    <style>
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naughty/Nice List</title>
+  <style>
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .scroll-container {
+      max-height: 400px;
+      /* Set a fixed height for the container box */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+    }
 
-        li {
-            margin-bottom: 20px;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 400px;
-            border: 1px solid #ccc;
-        }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Style for the country */
-        .country {
-            font-style: italic;
-            margin-right: 20px;
-            text-transform: uppercase;
-        }
+    li {
+      margin-bottom: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 400px;
+      border: 1px solid #ccc;
+    }
 
-        /* Style for the child's name */
-        .child-name {
-            font-weight: bold;
-            text-align: center;
-            flex-grow: 1;
-            text-transform: uppercase;
-        }
+    /* Style for the country */
+    .country {
+      font-style: italic;
+      margin-right: 20px;
+      text-transform: uppercase;
+    }
 
-        /* Style for the Naughty/Nice label */
-        .naughty-nice-nice {
-            font-weight: bold;
-            color: green;
-            margin-left: 20px;
-        }
+    /* Style for the child's name */
+    .child-name {
+      font-weight: bold;
+      text-align: center;
+      flex-grow: 1;
+      text-transform: uppercase;
+    }
 
-        .naughty-nice-naughty {
-            font-weight: bold;
-            color: red;
-            margin-left: 20px;
-        }
-    </style>
+    /* Style for the Naughty/Nice label */
+    .naughty-nice-nice {
+      font-weight: bold;
+      color: green;
+      margin-left: 20px;
+    }
+
+    .naughty-nice-naughty {
+      font-weight: bold;
+      color: red;
+      margin-left: 20px;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Santa's List</h1>
+  <h1>Naughty/Nice List</h1>
 
+  <div class="scroll-container">
     <ul>
-        {{#each children}}
-        <li>
-            <span class="country">
-                {{country}}
-            </span>
-            <span class="child-name {{#if naughtyNice}}naughty-nice-nice{{else}}naughty-nice-naughty{{/if}}">
-                {{child_name}}
-            </span>
-            <span class="naughty-nice">
-                {{#if naughtyNice}}Nice{{else}}Naughty{{/if}}
-            </span>
-        </li>
-        {{/each}}
+      {{#each children}}
+      <li>
+        <span class="country">
+          {{childCountry}}
+        </span>
+        <span class="child-name {{#if childNiceness}}naughty-nice-nice{{else}}naughty-nice-naughty{{/if}}">
+          {{childName}}
+        </span>
+        <span class="naughty-nice">
+          {{#if childNiceness}}Nice{{else}}Naughty{{/if}}
+        </span>
+      </li>
+      {{/each}}
     </ul>
-    <!-- Filter Buttons -->
-<form action="/lists" method="get">
-    <button type="submit" name="filter" value="nice">Nice</button>
-    <button type="submit" name="filter" value="naughty">Naughty</button>
-    <button type="submit" name="filter" value="">Show All</button>
-</form>
-
-
-
+  </div>
 </body>
 
 </html>

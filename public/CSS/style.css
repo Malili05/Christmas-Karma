@@ -9,13 +9,23 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   align-items: center;
-  font-family: "Skranji", cursive;
-  margin: 0; /* Reset margin to remove default spacing */
-  background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* Make the background cover the full viewport height */
+  font-family: 'Skranji', cursive;
+  margin: 0;
+}
+
+/* Add styles for light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+
+  nav a,
+  header h1,
+  .main-content a:hover {
+    color: #4caf50;
+    text-shadow: 2px 2px 2px #000;
+  }
 }
 
 .container-box {
@@ -25,7 +35,7 @@ body {
 .background-video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the video covers the entire container */
+  object-fit: cover;
 }
 
 header {
@@ -43,15 +53,15 @@ header h1 {
   margin: 0;
   font-size: 3em;
   text-decoration: none;
-  color: #fff;
   /* Add bold black outline */
   text-shadow: 2px 2px 2px #000;
-  transition: color 0.3s; /* Add transition for smooth color change */
+  transition: color 0.3s;
 }
 
 header h1:hover {
-  color: #4caf50; /* Change to green on hover */
+  color: #4caf50;
 }
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -70,7 +80,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #4caf50; /* Change to green on hover */
+  color: #4caf50;
 }
 
 .main-container {
@@ -80,9 +90,9 @@ nav a:hover {
   transform: translate(-50%, -50%);
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
-  width: 70%; /* Adjust the width as needed */
-  max-width: 600px; /* Set a maximum width if desired */
-  height: auto; /* Let the height adjust based on content */
+  width: 70%;
+  max-width: 600px;
+  height: auto;
   padding: 20px;
 }
 
@@ -90,9 +100,10 @@ nav a:hover {
   width: 75%;
   margin: 0 auto;
   padding: 20px;
+  /* Add color for text in light mode */
+  color: #000;
 }
 
-/* Center headings in the main content */
 .main-content h2,
 .main-content h3 {
   text-align: center;
@@ -100,10 +111,6 @@ nav a:hover {
   text-shadow: 2px 2px 2px #000;
 }
 
-/* Change text color to green on hover in main content */
 .main-content a:hover {
   color: #4caf50;
-}
-.ck-size {
-    size: 50px 50px;
 }
