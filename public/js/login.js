@@ -15,13 +15,9 @@ const loginFormHandler = async (event) => {
       const responseData = await response.json();
 
       if (response.ok) {
-        console.log(responseData); // Log the response for debugging
-
-        if (responseData.user) {
-          document.location.replace('/profile');
-        } else {
-          alert(responseData.message);
-        }
+        setTimeout(() => {
+          window.location.href = '/profile';
+        }, 100); 
       } else {
         alert(responseData.message || 'Login failed. Please try again.');
       }
@@ -48,7 +44,9 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/profile');
+        setTimeout(() => {
+          window.location.href = '/profile';
+        }, 100); 
       } else {
         alert('Signup failed. Please try again.');
       }
@@ -59,10 +57,5 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
