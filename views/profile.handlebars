@@ -1,5 +1,3 @@
-<!-- profile.handlebars -->
-
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
@@ -7,19 +5,48 @@
 </div>
 
 <div class="row mt-4">
-  {{#if child.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6">
+    <h3>Add a Child:</h3>
+
+    <form class="form new-child-form">
+      <div class="form-group">
+        <label for="child-name">Child's Name:</label>
+        <input class="form-input" type="text" id="childName" name="childName"
+          placeholder="First name, last initial" />
+      </div>
+
+      <div class="form-group">
+        <label for="child-country">Country where they live:</label>
+        <input class="form-input" type="text" id="childCountry" name="childCountry"
+          placeholder="U.S., Canada, France, etc..." />
+      </div>
+
+      <div class="form-group">
+        <label for="child-niceness">Naughty or Nice:</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="childNiceness" name="childNiceness" />
+          <label class="form-check-label" for="childNiceness">Nice</label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if children.length}}
+  <div class="col-md-6 child-list">
     <h3>Current Children:</h3>
 
-    {{#each childs as |child|}}
+    {{#each children as |child|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{child.id}}">{{child.name}}</a></h4>
-        {{!-- Display the country property --}}
-        <p>Country: {{child.country}}</p>
+        <h4><a href="/child/{{child.id}}">{{child.name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger delete-child-btn" data-id="{{child.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{child.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -27,34 +54,4 @@
   {{/if}}
 </div>
 
-<div class="col-md-6">
-  <h3>Add a Child:</h3>
-
-  <form class="form new-child-form">
-    <div class="form-group">
-      <label for="child-name">Child's name:</label>
-      <input class="form-input" type="text" id="child-name" name="child-name" placeholder="First name, last initial" />
-    </div>
-    <div class="form-group">
-      <label for="child-country">Country where they live:</label>
-      <input class="form-input" type="text" id="child-country" name="child-country"
-        placeholder="U.S., Canada, France, etc..." />
-    </div>
-    <div class="form-group">
-      <label>Which list does this child belong to?</label>
-      <div class="form-radio">
-        <input type="radio" id="naughty-list" name="child-list" value="naughty" />
-        <label for="naughty-list">Naughty</label>
-      </div>
-      <div class="form-radio">
-        <input type="radio" id="nice-list" name="child-list" value="nice" />
-        <label for="nice-list">Nice</label>
-      </div>
-    </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary add-child-btn">Add Child</button>
-    </div>
-  </form>
-</div>
-
-<script src="./js/profile.js"></script>
+<script src="/js/profile.js"></script>

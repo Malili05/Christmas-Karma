@@ -13,49 +13,49 @@
 </head>
 
 <body>
+  <!-- Video Background -->
+  <div class="container-box">
+    <video class="background-video" autoplay muted loop>
+      <source src="/media/SantaCity.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-  <video class="background-video" autoplay muted loop>
-    <source src="/media/SantaCity.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Credit text for the video -->
-  <p style="text-align: center; font-size: 12px; color: #fff; margin-top: 10px;">
-    Video Credit: 3D animation video by Quince Creative -
-    <a href="https://quincemedia.com" style="color: #fff; text-decoration: underline;" target="_blank">
-      quincemedia.com
-    </a>
-  </p>
-
-  <header>
-    <a href="/" style="text-decoration: none;">
-      <img class="ck-size" src="/media/CK.png">
-    </a>
+    <!-- Navbar -->
     <nav>
       <a href="/profile">Profile</a>
-
       <a href="/lists">View The Lists!</a>
-
-      <!-- Add a link to the chart page -->
       <a href="/chart">View Pie Chart</a>
-
-      <!-- Fixed Login Link -->
       <a href="/login" id="login">Login</a>
-
-      <!-- Seperate Logout Link -->
-      <a href="#" id="logout" style="display: none;">Logout</a>
+      <a href="#" id="logout">Logout</a>
 
     </nav>
-  </header>
 
-  <!-- Container for the main content -->
-  <div class="main-container">
-    <main class="main-content">
-      <!-- Render the sub layout -->
-      {{{body}}}
-    </main>
+    <!-- Header -->
+    <header>
+      <a href="/" style="text-decoration: none;">
+        <img class="ck-size" src="/media/CK.png">
+      </a>
+    </header>
+
+
+
+    <!-- Credit text for the video -->
+    <p style="text-align: center; font-size: 12px; color: #fff; margin-top: 10px;">
+      Video Credit: 3D animation video by Quince Creative -
+      <a href="https://quincemedia.com" style="color: #fff; text-decoration: underline;" target="_blank">
+        quincemedia.com
+      </a>
+    </p>
+
+
+    <!-- Container for the main content -->
+    <div class="main-container">
+      <main class="main-content">
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+    </div>
   </div>
-
   <!-- Naughty Notifier -->
   <footer class="main-footer">
     <div id="naughty-notifier">

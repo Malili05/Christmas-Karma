@@ -11,13 +11,18 @@ Child.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    child_name: {
+    childName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    country: { // Add the country field
+    childCountry: { // Add the country field
       type: DataTypes.STRING,
       allowNull: true, // Adjust allowNull as needed
+    },
+
+    childNiceness: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -25,10 +30,6 @@ Child.init(
         model: 'user',
         key: 'id',
       },
-    },
-    naughtyNice: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
     },
   },
   {

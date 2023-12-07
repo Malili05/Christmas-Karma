@@ -1,0 +1,98 @@
+[
+  {
+    "childName": "shabby a",
+    "childCountry": "usa",
+    "childNiceness": true,
+    "user_id": 1
+  },
+  {
+    "childName": "shabby b",
+    "childCountry": "usa",
+    "childNiceness": false,
+    "user_id": 1
+  },
+  {
+    "childName": "cabby c",
+    "childCountry": "mexico",
+    "childNiceness": false,
+    "user_id": 2
+  },
+  {
+    "childName": "cabbage d",
+    "childCountry": "usa",
+    "childNiceness": true,
+    "user_id": 3
+  },
+  {
+    "childName": "letuce e",
+    "childCountry": "usa",
+    "childNiceness": false,
+    "user_id": 4
+  },
+  {
+    "childName": "shawn f",
+    "childCountry": "canada",
+    "childNiceness": true,
+    "user_id": 4
+  },
+  {
+    "childName": "blonde g",
+    "childCountry": "japan",
+    "childNiceness": true,
+    "user_id": 4
+  },
+  {
+    "childName": "jackson h",
+    "childCountry": "france",
+    "childNiceness": false,
+    "user_id": 5
+  },
+  {
+    "childName": "shabby a",
+    "childCountry": "usa",
+    "childNiceness": true,
+    "user_id": 1
+  },
+  {
+    "childName": "shabby b",
+    "childCountry": "usa",
+    "childNiceness": false,
+    "user_id": 1
+  },
+  {
+    "childName": "cabby c",
+    "childCountry": "mexico",
+    "childNiceness": false,
+    "user_id": 2
+  },
+  {
+    "childName": "cabbage d",
+    "childCountry": "usa",
+    "childNiceness": true,
+    "user_id": 3
+  },
+  {
+    "childName": "letuce e",
+    "childCountry": "usa",
+    "childNiceness": false,
+    "user_id": 4
+  },
+  {
+    "childName": "shawn f",
+    "childCountry": "canada",
+    "childNiceness": true,
+    "user_id": 4
+  },
+  {
+    "childName": "blonde g",
+    "childCountry": "japan",
+    "childNiceness": true,
+    "user_id": 4
+  },
+  {
+    "childName": "jackson h",
+    "childCountry": "france",
+    "childNiceness": false,
+    "user_id": 5
+  }
+]
