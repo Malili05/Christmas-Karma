@@ -34,16 +34,26 @@ router.get('/profile', withAuth(true), async (req, res) => {
 });
 
 router.get('/lists', withAuth(false), async (req, res) => {
-  try {
-    const children = await Child.findAll({
-      attributes: ['childName', 'childNiceness', 'childCountry'], // Include 'country'
-    });
-
-    res.render('lists', { children });
-  } catch (err) {
-    console.error('Error fetching children data:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
+  try{
+  let children;
+  const filter = req.query.filter; // Retrieve filter parameter from query string
+  const query = {
+    attributes: ['childName', 'childNiceness', 'childCountry']
   }
+  if (filter === 'nice' || filter === 'naughty') {
+    query.where = {
+      childNiceness: filter === 'nice' // Set to true for 'nice', false for 'naughty'
+    };
+  }
+
+  children = await Child.findAll(query)
+
+
+  res.render('lists', { children });
+} catch (err) {
+  console.error('Error fetching children data:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+}
 });
 
 module.exports = router;
