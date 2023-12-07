@@ -6,6 +6,6 @@ const chartRoutes = require('./chartRoutes'); // Include chartRoutes
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/chart', chartRoutes); // Use /chart for chart routes
-router.use('/', homeRoutes);
+
 
 module.exports = router;

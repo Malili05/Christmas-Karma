@@ -11,8 +11,7 @@
     <form class="form new-child-form">
       <div class="form-group">
         <label for="child-name">Child's Name:</label>
-        <input class="form-input" type="text" id="childName" name="childName"
-          placeholder="First name, last initial" />
+        <input class="form-input" type="text" id="childName" name="childName" placeholder="First name, last initial" />
       </div>
 
       <div class="form-group">
@@ -42,9 +41,8 @@
 
     {{#each children as |child|}}
     <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/child/{{child.id}}">{{child.name}}</a></h4>
-      </div>
+
+      <h4>{{child.childName}}</h4>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{child.id}}">DELETE</button>
       </div>
