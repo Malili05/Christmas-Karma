@@ -11,7 +11,7 @@ body {
   align-items: center;
   font-family: "Skranji", cursive;
   margin: 0; /* Reset margin to remove default spacing */
-  background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+ 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
