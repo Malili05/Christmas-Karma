@@ -14,29 +14,19 @@
             margin-top: 20px;
             /* Add margin to give space at the top */
         }
-
     </style>
 </head>
 
 <body>
     <h1>State of the World</h1>
     <section>
-    <!-- Canvas element for the pie chart -->
+        <!-- Canvas element for the pie chart -->
         <canvas id="myPieChart" width="400" height="400"></canvas>
     </section>
 
     <script>
         // JavaScript code to create the pie chart
         document.addEventListener('DOMContentLoaded', function () {
-            // Sample data, replace this with data from your database
-            //var data = {
-               // labels: ['Nice', 'Naughty'],
-                //datasets: [{
-                  //  data: [25, 75], // Example data, replace with your actual data
-                  //  backgroundColor: ['#36A2EB', '#FF6384'],
-                   // hoverBackgroundColor: ['#36A2EB', '#FF6384'],
-               // }],
-           // };
 
             var ctx = document.getElementById('myPieChart').getContext('2d');
             var myPieChart = new Chart(ctx, {
