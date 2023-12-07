@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   res.render('chart');
 });
 
-router.get('/test', async (req, res) => {
+router.get('/chart/test', async (req, res) => {
   var data = {
     labels: ['Nice', 'Naughty'],
     datasets: [{
@@ -22,7 +22,7 @@ router.get('/test', async (req, res) => {
 const db_data= await Child.findAll({})
 let naughty= 0, nice= 0;
 db_data.forEach(record => {
-  if(record.naughtyNice) naughty+= 1
+  if(record.childNiceness) naughty+= 1
   else nice += 1
 })
 data.datasets[0].data.push(naughty, nice)
