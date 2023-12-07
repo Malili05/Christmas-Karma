@@ -1,51 +1,53 @@
-// controllers/children.js
 const router = require('express').Router();
-const { Child } = require('../../models'); // Update the import to match your controller file
+const { Child } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// Handle the creation of a new child
-router.post('/api/child', async (req, res) => {
-    try {
-        console.log('POST /api/child endpoint hit');
-        const { child_name, user_id, naughtyNice } = req.body;
-        // Perform validation if needed
+// GET route to retrieve all children
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const children = await Child.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
-        // Create a new child
-        const newChild = await Child.create({
-            child_name,
-            user_id,
-            naughtyNice,
-        });
-
-        res.status(201).json(newChild); // Return the newly created child
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+    res.status(200).json(children);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-// Handle the deletion of a child
-router.delete('/api/child/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        // Perform validation if needed
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newChild = await Child.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
-        // Delete the child by ID
-        const deletedChild = await Child.destroy({
-            where: { id },
-        });
-
-        if (deletedChild) {
-            res.status(204).end(); // No content is sent in the response
-        } else {
-            res.status(404).json({ error: 'Child not found' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+    res.status(200).json(newChild);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-console.log("Child Routes Registered")
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const childData = await Child.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
 
-// Add more functions as needed for child-related operations
+    if (!childData) {
+      res.status(404).json({ message: 'No Child found with this id!' });
+      return;
+    }
+
+    res.status(200).json(childData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
