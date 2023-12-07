@@ -60,7 +60,7 @@
 </head>
 
 <body>
-    <h1>Naughty/Nice List</h1>
+    <h1>Santa's List</h1>
 
     <ul>
         {{#each children}}
@@ -77,6 +77,15 @@
         </li>
         {{/each}}
     </ul>
+    <!-- Filter Buttons -->
+<form action="/lists" method="get">
+    <button type="submit" name="filter" value="nice">Nice</button>
+    <button type="submit" name="filter" value="naughty">Naughty</button>
+    <button type="submit" name="filter" value="">Show All</button>
+</form>
+
+
+
 </body>
 
 </html>

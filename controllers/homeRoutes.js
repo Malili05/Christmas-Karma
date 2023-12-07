@@ -34,9 +34,17 @@ router.get('/profile', withAuth(true), async (req, res) => {
 
 router.get('/lists', withAuth(false), async (req, res) => {
     try {
-        const children = await Child.findAll({
-            attributes: ['child_name', 'naughtyNice', 'country'], // Include 'country'
-        });
+        let children;
+        const filter = req.query.filter; // Retrieve filter parameter from query string
+        const query= {
+            attributes: ['child_name', 'naughtyNice', 'country']
+        }
+        if (filter === 'nice' || filter === 'naughty') {
+            query.where= {
+                naughtyNice: filter === 'nice' ? 1 : 0
+            }
+        }
+        children = await Child.findAll(query)
 
         res.render('lists', { children });
     } catch (err) {
