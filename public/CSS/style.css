@@ -115,3 +115,40 @@ nav a:hover {
 .main-content a:hover {
   color: #4caf50;
 }
+
+/* Maintain the current layout for larger screens */
+@media screen and (min-width: 768px) {
+  nav {
+    flex-direction: row;
+  }
+
+  .main-container {
+    top: 50%; /* Keep it centered at the top */
+  }
+}
+
+/* Adjust styles for screens with a maximum width of 767px (smaller screens) */
+@media screen and (max-width: 767px) {
+  nav {
+    flex-direction: column;
+    align-items: center; /* Optional: Center the items in the column */
+    margin-top: 200px;
+  }
+
+  nav a {
+    margin-bottom: 10px; /* Optional: Add some space between the items */
+  }
+
+  .main-container {
+    margin-top: 600px; /* Move it down the page */
+  }
+
+  /* Update the CSS for the header image */
+  header a img.ck-size {
+    max-width: 100%; /* Ensure the image scales down to fit its container */
+  }
+
+  .main-footer {
+    margin-top: 550px;
+  }
+}
