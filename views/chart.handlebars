@@ -12,22 +12,33 @@
     <style>
         h1 {
             margin-top: 20px;
-            /* Add margin to give space at the top */
+
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        canvas {
+            max-width: 100%;
+
         }
     </style>
 </head>
 
 <body>
     <h1>State of the World</h1>
-    <section>
+    <div class="chart-container">
         <!-- Canvas element for the pie chart -->
         <canvas id="myPieChart" width="400" height="400"></canvas>
-    </section>
+    </div>
 
     <script>
         // JavaScript code to create the pie chart
         document.addEventListener('DOMContentLoaded', function () {
-
             var ctx = document.getElementById('myPieChart').getContext('2d');
             var myPieChart = new Chart(ctx, {
                 type: 'pie',

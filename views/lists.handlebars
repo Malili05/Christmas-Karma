@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naughty/Nice List</title>
   <style>
+    /* Styles for Santa's List page */
+
     h1 {
       text-align: center;
       margin-bottom: 20px;
@@ -13,9 +15,7 @@
 
     .scroll-container {
       max-height: 400px;
-      /* Set a fixed height for the container box */
       overflow-y: auto;
-      /* Enable vertical scrolling */
     }
 
     ul {
@@ -34,34 +34,101 @@
       align-items: center;
       width: 400px;
       border: 1px solid #ccc;
+      background-color: #ffdd8a;
     }
 
-    /* Style for the country */
-    .country {
-      font-style: italic;
-      margin-right: 20px;
-      text-transform: uppercase;
+    .child-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-grow: 1;
     }
 
-    /* Style for the child's name */
     .child-name {
       font-weight: bold;
-      text-align: center;
-      flex-grow: 1;
       text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 5px;
+
     }
 
-    /* Style for the Naughty/Nice label */
+    .country {
+      font-style: italic;
+      text-transform: uppercase;
+      color: blue;
+      text-align: center;
+      margin-top: 5px;
+
+    }
+
     .naughty-nice-nice {
       font-weight: bold;
       color: green;
-      margin-left: 20px;
+      text-align: right;
+
     }
 
     .naughty-nice-naughty {
       font-weight: bold;
       color: red;
-      margin-left: 20px;
+      text-align: right;
+
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .filter-buttons button {
+      flex-grow: 1;
+      margin: 0 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Style for the "Nice" button */
+    .filter-buttons button[value="nice"] {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    /* Style for the "Naughty" button */
+    .filter-buttons button[value="naughty"] {
+      background-color: #ff0000;
+      color: #fff;
+    }
+
+    /* Responsive styles */
+    @media only screen and (max-width: 600px) {
+      li {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .child-info {
+        align-items: center;
+        width: 100%;
+      }
+
+      .child-name,
+      .country,
+      .naughty-nice-nice,
+      .naughty-nice-naughty {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .filter-buttons {
+        flex-direction: column;
+      }
+
+      .filter-buttons button {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
@@ -73,13 +140,15 @@
     <ul>
       {{#each children}}
       <li>
-        <span class="country">
-          {{childCountry}}
-        </span>
-        <span class="child-name {{#if childNiceness}}naughty-nice-nice{{else}}naughty-nice-naughty{{/if}}">
-          {{childName}}
-        </span>
-        <span class="naughty-nice">
+        <div class="child-info">
+          <span class="child-name {{#if childNiceness}}naughty-nice-nice{{else}}naughty-nice-naughty{{/if}}">
+            {{childName}}
+          </span>
+          <span class="country">
+            {{childCountry}}
+          </span>
+        </div>
+        <span class="{{#if childNiceness}}naughty-nice-nice{{else}}naughty-nice-naughty{{/if}}">
           {{#if childNiceness}}Nice{{else}}Naughty{{/if}}
         </span>
       </li>
@@ -88,14 +157,13 @@
   </div>
 
   <!-- Filter Buttons -->
-  <form action="/lists" method="get">
-    <button type="submit" name="filter" value="nice">Nice</button>
-    <button type="submit" name="filter" value="naughty">Naughty</button>
-    <button type="submit" name="filter" value="">Show All</button>
-  </form>
-
-
-
+  <div class="filter-buttons">
+    <form action="/lists" method="get">
+      <button type="submit" name="filter" value="nice">Nice</button>
+      <button type="submit" name="filter" value="">Show All</button>
+      <button type="submit" name="filter" value="naughty">Naughty</button>
+    </form>
+  </div>
 </body>
 
 </html>

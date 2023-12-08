@@ -11,6 +11,7 @@ body {
   align-items: center;
   font-family: 'Skranji', cursive;
   margin: 0;
+  background-color: #a70000;
 }
 
 /* Add styles for light mode */
