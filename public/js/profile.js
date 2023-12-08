@@ -24,7 +24,18 @@ const newFormHandler = async (event) => {
       // Check if the request was successful
       if (response.ok) {
         console.log('Child created successfully');
-        document.location.replace('/profile');
+
+        // Play a sound when a new child is added
+        const addSound = new Audio('/media/newchild.wav');
+
+        // Listen for the 'ended' event to delay the page refresh until the sound finishes playing
+        addSound.addEventListener('ended', () => {
+          // Redirect to the profile page
+          document.location.replace('/profile');
+        });
+
+        // Start playing the sound
+        addSound.play();
       } else {
         console.error('Failed to create child:', response);
         alert('Failed to create child');
@@ -41,17 +52,26 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    // Make a DELETE request to delete a child
-    const response = await fetch(`/api/children/${id}`, {
-      method: 'DELETE',
+    // Play a sound when the Delete button is clicked
+    const deleteSound = new Audio('/media/kickthebaby.mp3');
+
+    // Listen for the 'ended' event to delay the page refresh until the sound finishes playing
+    deleteSound.addEventListener('ended', async () => {
+      // Make a DELETE request to delete a child
+      const response = await fetch(`/api/children/${id}`, {
+        method: 'DELETE',
+      });
+
+      // Check if the request was successful
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to delete child');
+      }
     });
 
-    // Check if the request was successful
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete child');
-    }
+    // Start playing the sound
+    deleteSound.play();
   }
 };
 
@@ -68,4 +88,3 @@ document.addEventListener('DOMContentLoaded', function () {
     childList.addEventListener('click', delButtonHandler);
   }
 });
-
