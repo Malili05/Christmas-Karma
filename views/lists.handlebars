@@ -78,6 +78,8 @@
     .filter-buttons {
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       margin-top: 20px;
     }
 
@@ -103,28 +105,6 @@
 
     /* Responsive styles */
     @media only screen and (max-width: 600px) {
-      li {
-        width: auto;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .child-info {
-        align-items: center;
-        width: 100%;
-      }
-
-      .child-name,
-      .country,
-      .naughty-nice-nice,
-      .naughty-nice-naughty {
-        margin: 10px 0;
-        text-align: center;
-      }
-
-      .filter-buttons {
-        flex-direction: column;
-      }
 
       .filter-buttons button {
         margin: 10px 0;

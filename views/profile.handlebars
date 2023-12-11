@@ -41,7 +41,7 @@
     <!-- Wrap children in a flexbox with responsive styling -->
     <div class="child-flex-container">
       {{#each children as |child|}}
-      <div class="child-item">
+      <div class="child-item" style="color: {{#if child.childNiceness}}green{{else}}red{{/if}}">
         <h4>{{child.childName}}</h4>
         <button class="btn btn-sm btn-danger" data-id="{{child.id}}">DELETE</button>
       </div>
