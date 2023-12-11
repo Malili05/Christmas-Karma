@@ -1,12 +1,7 @@
 /* Updated CSS */
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   align-items: center;
   font-family: 'Skranji', cursive;
@@ -14,7 +9,6 @@ body {
   background-color: #a70000;
 }
 
-/* Add styles for light mode */
 @media (prefers-color-scheme: light) {
   body {
     background-color: #fff;
@@ -29,7 +23,7 @@ body {
   }
 }
 
-.container-box {
+.background-video-container {
   position: relative;
 }
 
@@ -46,7 +40,7 @@ header {
   width: 100%;
   padding: 10px;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
   background-color: transparent;
 }
 
@@ -54,7 +48,6 @@ header h1 {
   margin: 0;
   font-size: 3em;
   text-decoration: none;
-  /* Add bold black outline */
   text-shadow: 2px 2px 2px #000;
   transition: color 0.3s;
 }
@@ -67,7 +60,7 @@ nav {
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  z-index: 1;
+  z-index: 2;
   background-color: transparent;
 }
 
@@ -76,7 +69,6 @@ nav a {
   text-decoration: none;
   font-size: 2em;
   transition: color 0.3s;
-  /* Add bold black outline */
   text-shadow: 2px 2px 2px #000;
 }
 
@@ -85,30 +77,24 @@ nav a:hover {
 }
 
 .main-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
   width: 70%;
   max-width: 600px;
-  height: auto;
+  margin: 20px auto 0;
   padding: 20px;
 }
 
 .main-content {
-  width: 75%;
-  margin: 0 auto;
+  width: 100%;
   padding: 20px;
-  /* Add color for text in light mode */
   color: #000;
 }
 
 .main-content h2,
 .main-content h3 {
   text-align: center;
-  /* Add bold black outline */
   text-shadow: 2px 2px 2px #000;
 }
 
@@ -116,39 +102,75 @@ nav a:hover {
   color: #4caf50;
 }
 
-/* Maintain the current layout for larger screens */
+.ck-wrapper {
+  display: block;
+  position: fixed; /* or position: absolute; */
+  top: 10px; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 1; /* Set a lower z-index value */
+}
+
 @media screen and (min-width: 768px) {
   nav {
     flex-direction: row;
   }
 
   .main-container {
-    top: 50%; /* Keep it centered at the top */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 70%;
+    max-width: 600px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .main-container,
+  .main-content {
+    margin-top: 0;
+  }
+
+  .video-credit {
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
   }
 }
 
-/* Adjust styles for screens with a maximum width of 767px (smaller screens) */
 @media screen and (max-width: 767px) {
   nav {
     flex-direction: column;
-    align-items: center; /* Optional: Center the items in the column */
-    margin-top: 200px;
+    align-items: center;
   }
 
   nav a {
-    margin-bottom: 10px; /* Optional: Add some space between the items */
+    margin-bottom: 10px;
+  }
+
+  .ck-wrapper {
+    display: none;
   }
 
   .main-container {
-    margin-top: 600px; /* Move it down the page */
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Update the CSS for the header image */
-  header a img.ck-size {
-    max-width: 100%; /* Ensure the image scales down to fit its container */
+  .video-credit {
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
   }
 
   .main-footer {
-    margin-top: 550px;
+    margin-top: 20px;
   }
 }

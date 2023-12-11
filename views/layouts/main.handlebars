@@ -13,50 +13,41 @@
 </head>
 
 <body>
-  <!-- Video Background -->
-  <div class="container-box">
+  <div class="background-video-container">
     <video class="background-video" autoplay muted loop>
       <source src="/media/SantaCity.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <!-- Navbar -->
-    <nav>
-      <a href="/login" id="login">Login</a>
-      <a href="/profile">Profile</a>
-      <a href="/lists">View Santa's List!</a>
-      <a href="/chart">View Pie Chart</a>
-      <a href="#" id="logout">Logout</a>
-
-    </nav>
-
-    <!-- Header -->
     <header>
-      <a href="/" style="text-decoration: none;">
-        <img class="ck-size" src="/media/CK.png">
-      </a>
+      <nav>
+        <a href="/login">Login</a>
+        <a href="/profile">Profile</a>
+        <a href="/lists">View Santa's List!</a>
+        <a href="/chart">View Pie Chart</a>
+        <a href="#" id="logout">Logout</a>
+      </nav>
     </header>
 
-
-
-    <!-- Credit text for the video -->
-    <p style="text-align: center; font-size: 12px; color: #fff; margin-top: 10px;">
-      Video Credit: 3D animation video by Quince Creative -
-      <a href="https://quincemedia.com" style="color: #fff; text-decoration: underline;" target="_blank">
-        quincemedia.com
+    <div class="ck-wrapper">
+      <a href="/" style="text-decoration: none;">
+        <img class="ck-size" src="/media/CK.png" alt="Christmas Karma Logo">
       </a>
-    </p>
+    </div>
 
 
-    <!-- Container for the main content -->
     <div class="main-container">
       <main class="main-content">
-        <!-- Render the sub layout -->
         {{{body}}}
       </main>
     </div>
+
+    <p class="video-credit">
+      Video Credit: 3D animation video by Quince Creative -
+      <a href="https://quincemedia.com" target="_blank">quincemedia.com</a>
+    </p>
   </div>
-  <!-- Naughty Notifier -->
+
   <footer class="main-footer">
     <div id="naughty-notifier">
       <h2>Naughty Notifier</h2>
@@ -69,12 +60,8 @@
     </div>
   </footer>
 
-  <!-- Include Naughty Notifier JavaScript -->
-  <script src="/js/naughty-notifier.js"></script>
-
-  <!-- Include logout script -->
-  <script src="/js/logout.js"></script>
-
+  <script src="/js/naughty-notifier.js" defer></script>
+  <script src="/js/logout.js" defer></script>
 </body>
 
 </html>
